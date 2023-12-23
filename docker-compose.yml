@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: jouwgebruiker
+      POSTGRES_PASSWORD: jouwwachtwoord
+      POSTGRES_DB: jouwdatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: jouwwachtwoord
+      MYSQL_DATABASE: jouwdatabase
+      MYSQL_USER: jouwgebruiker
+      MYSQL_PASSWORD: jouwwachtwoord
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  postgres_data:
+  mysql_data:
